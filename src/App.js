@@ -26,18 +26,22 @@ function App() {
     });
 
     function handleChange(event) {
-      const {name, value, type, checked} = event.target
-      setFormData(prevFormData => {
-        return {
-          ...prevFormData,
-          [name] : type === "checkbox" ? checked : value
-        }
-      })
-    }
+        const {name, value, type, checked} = event.target
+          setFormData(prevFormData => {
+            return {
+              ...prevFormData,
+              [name] : type === "checkbox" ? checked : value
+            }
+        });
+    };
     console.log(formData)
 
     function handleSubmit(event) {
-          event.preventDefault()
+        event.preventDefault()
+        formData.password === formData.passwordConfirmation ? 
+            console.log("Successfully signed up") :
+            console.log("Passwords do not match");
+        
     };
     
     return (
