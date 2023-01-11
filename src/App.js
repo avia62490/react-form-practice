@@ -7,7 +7,8 @@ function App() {
         password: "",
         passwordConfirmation: "",
         joinNewsletter: false,
-        employment: ""
+        employment: "",
+        favColor: ""
     });
 
     function handleChange(event) {
@@ -30,11 +31,13 @@ function App() {
         formData.joinNewsletter ? 
             console.log("Thanks for joining our newsletter") : 
             console.log();
+        console.log(`Your favorite color is ${formData.favColor}!`)
     };
     
     return (
         <div className="form-container">
             <form className="form" onSubmit={handleSubmit}>
+            {/* email/password inputs */}
                 <input 
                     type="email" 
                     placeholder="Email address"
@@ -59,7 +62,7 @@ function App() {
                     value={formData.passwordConfirmation}
                     onChange={handleChange}
                 />
-                
+            {/* checkbox */}
                 <div className="form--marketing">
                     <input
                         id="okayToEmail"
@@ -70,7 +73,8 @@ function App() {
                     />
                     <label htmlFor="okayToEmail">I want to join the newsletter</label>
                 </div>
-                <fieldset>
+            {/* employment status radio options */}
+                <fieldset> 
                 <legend>Current employment status</legend>
                 <input 
                     type="radio"
@@ -99,8 +103,26 @@ function App() {
                 />
                 <label htmlFor="full-time">Full-time</label>
                 <br />
-            </fieldset>
-
+                </fieldset>
+            {/* favorite color selector */}
+                <label htmlFor="favColor">What is your favorite color?</label>
+                <br />
+                <select 
+                    id="favColor"
+                    name="favColor"
+                    value={formData.favColor}
+                    onChange={handleChange}
+                >
+                    <option value="">Choose a color</option>
+                    <option value="red">Red</option>
+                    <option value="orange">Orange</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="green">Green</option>
+                    <option value="blue">Blue</option>
+                    <option value="indigo">Indigo</option>
+                    <option value="violet">Violet</option>
+                </select>
+            {/* submit button (handleSubmit function by default) */}
                 <button 
                     className="form--submit"
                 >
