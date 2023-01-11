@@ -28,7 +28,7 @@ function App() {
         formData.password === formData.passwordConfirmation ? 
             console.log("Successfully signed up") :
             console.log("Passwords do not match");
-        formData.joinNewsletter ? 
+        formData.joinNewsletter && formData.password === formData.passwordConfirmation ? 
             console.log("Thanks for joining our newsletter") : 
             console.log();
         console.log(`Your favorite color is ${formData.favColor}!`)
@@ -122,7 +122,7 @@ function App() {
                     <option value="indigo">Indigo</option>
                     <option value="violet">Violet</option>
                 </select>
-            {/* submit button (handleSubmit function by default) */}
+            {/* submit button (handleSubmit function declared at top of form) */}
                 <button 
                     className="form--submit"
                 >
