@@ -1,38 +1,23 @@
 import React from 'react';
 import './App.css';
 
-/**
-     * Challenge: Connect the form to local state
-     * 
-     * 1. Create a state object to store the 4 values we need to save.
-     * 2. Create a single handleChange function that can
-     *    manage the state of all the inputs and set it up
-     *    correctly
-     * 3. When the user clicks "Sign up", check if the 
-     *    password & confirmation match each other. If
-     *    so, log "Successfully signed up" to the console.
-     *    If not, log "passwords to not match" to the console.
-     * 4. Also when submitting the form, if the person checked
-     *    the "newsletter" checkbox, log "Thanks for signing
-     *    up for our newsletter!" to the console.
-     */
-
 function App() {
     const [formData, setFormData] = React.useState(
-      {email: "",
-      password: "",
-      passwordConfirmation: "",
-      joinNewsletter: false
+        {email: "",
+        password: "",
+        passwordConfirmation: "",
+        joinNewsletter: false
     });
 
     function handleChange(event) {
         const {name, value, type, checked} = event.target
-          setFormData(prevFormData => {
-            return {
-              ...prevFormData,
-              [name] : type === "checkbox" ? checked : value
+            setFormData(prevFormData => {
+                return {
+                  ...prevFormData,
+                  [name] : type === "checkbox" ? checked : value
+                }
             }
-        });
+        );
     };
     console.log(formData)
 
@@ -41,7 +26,9 @@ function App() {
         formData.password === formData.passwordConfirmation ? 
             console.log("Successfully signed up") :
             console.log("Passwords do not match");
-        
+        formData.joinNewsletter ? 
+            console.log("Thanks for joining our newsletter") : 
+            console.log();
     };
     
     return (
